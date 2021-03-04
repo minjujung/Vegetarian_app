@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import "_variables";
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    
+}
+
+.Loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Home {
+    height: 100vh;
+    display: flex;
+    .title {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 10%;
+        font-family: 'Indie Flower', cursive;
+        background: white;
+
+        padding-top: 20px;
+        .title_text {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: 500;           
+        }
+        nav {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            background: white;
+            ul {
+                width: 20%;
+                display: flex;
+                justify-content: space-around;
+                font-size: 25px;
+                margin-bottom: 20px;
+                &:first-child {
+                    margin-left: 20px;
+                }
+                li {
+                    &:hover {
+                        color: #adc178;
+                        border-bottom: 1px solid #adc178;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .Menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 200px;
+        padding-top: 150px;
+        width: 100%;   
+        .type{
+            width: 70%;
+            background-color: white;
+            margin-bottom: 70px;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+            0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+            .type_text {
+                display: flex;
+                flex-direction: column;               
+                align-items: center;
+                align-self:center;
+                width: 50%;
+                font-family: 'Amatic SC', cursive;
+                .icon {
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
+                    font-size: 30px;
+                    margin-bottom: 30px;
+                    color: $green;
+                }
+                h3{
+                    margin-bottom: 30px;
+                    font-size: 60px;
+                }
+                p {
+                    width: 60%;
+                    text-align: center;
+                    font-size: 30px;
+                }
+            }
+            img {     
+                width: 50%;
+                margin-right: 30px;
+                box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+                0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+                }
+            }
+    }
+}
+
+
+
+
+
+
+
