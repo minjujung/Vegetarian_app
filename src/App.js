@@ -1,65 +1,37 @@
 import React from "react";
-import TypeTitle, { vegeTypes }  from "./components/Type";
-import "./App.scss";
-import "./reset.css";
+import { HashRouter, Route } from "react-router-dom"
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
+import "./routes/Home.scss"
 
+// the router takes the url, looks at it then according to what we 
+//told the router, the router would say "okay! go to this component!
+//go to this screen!"
 
-// react is automatically going to execute their render 
-// method(function) of my class component
+// There are very important two props in route.
+// 1. the screen that is going to render 
+// 2. what url is it going to do
 
-//state is an object, and there is where I'm going to put
-//data of my component, the data that will change
-class App extends React.Component {
-  state = {
-    isLoading: true,
-    vegeTypes: vegeTypes
-   };
-  
+//ex) <Route path="/about" component={About} />
+// --> if I go to this path, then show this component 
 
-// if I call setstate, react is going to refresh the state 
-// but also call their render function one more time with 
-// the new state.
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 4000)
-  }
-  
-  render() {
-    const { isLoading, vegeTypes } = this.state;
-    return(
-      <div className="container">
-        {isLoading? 
-          <div className="Loader">
-            <span className="Loader_text">Welcome :D</span>
-          </div> : (
-            <secition className="Home">
-              <div className="title">
-                <div className="title_text">
-                  <h1>What is vegetarian?!</h1>
-                </div>
-                <nav>
-                  <ul>
-                    <li>Home</li>
-                    <li>Shop</li>
-                  </ul>
-                  <ul>
-                    <li>Top</li>          
-                  </ul>
-                </nav>
-              </div>
-              <section className="Menu">
-            {vegeTypes.map((types) =>(
-              <TypeTitle key={types.id} name={types.name} photo={types.image} desc={types.description} icon={types.icon} />
-            ))}
-        </section>  
-            </secition>
-            
-          )                          
-        }
-      </div>
-    )
-  };
+//ex) <Route path="/" component={Home} />
+//    <Route path="/detail" component={Detail} />  
+// --> react-router basically takes your url, and it will
+// compare it to everything on your router. so it will take 
+// the url slash('/' for home '/(detail)' for detail)
+//--> if router finds it's a match then it is going to show
+// the component ==> match되는거 전부를 한 화면에 다 render해버림!!
+
+//exact={true} --> this, and nothing else : 이거랑 정확하게 똑같지
+//않으면 {home} component는 불러오지마!
+function App() {
+  return (
+    <HashRouter>
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/detail" component={Detail} />
+    </HashRouter>
+  );
 }
 
 export default App;

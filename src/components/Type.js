@@ -1,22 +1,33 @@
 import React from "react";
 import Proptypes from "prop-types";
-import "../App.scss";
+import "./Type.scss";
 import "../reset.css";
+import { Link } from "react-router-dom";
 import { FaCarrot, FaFish, FaIceCream } from "react-icons/fa";
 import { GiShinyApple, GiWheat, GiSlicedMushroom, GiMilkCarton, 
          GiCheeseWedge, GiRawEgg, GiPeanut } from "react-icons/gi";
 
 
-function TypeTitle({ name, photo, desc, icon }) {
+function TypeTitle({ id, name, photo, desc, icon }) {
     return (
             <section className="type">
               <img src={photo} alt={name}></img>
-              <div className="type_text">
+              <div className="type_text" key={id}>
                 <h3>{name}</h3> 
-                  <div className="icon">{icon}</div>
+                <div className="icon">{icon}</div>
                 <p>{desc}</p>
+                  <Link 
+                    to={{
+                      pathname: "/detail",
+                      state: {
+                        name: name,
+                        photo: photo,
+                        desc: desc,
+                        icon: icon
+                      }
+                  }}>More Detail</Link>
               </div>
-            </section>
+            </section> 
       );
   }
 
